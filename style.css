@@ -357,9 +357,13 @@
 
         .about-image img {
             width: 100%;
-            height: 500px;
-            object-fit: cover;
+            /* CHANGED: Removed fixed 500px height. 'auto' prevents distortion. */
+            height: auto; 
+            /* NEW: Forces a nice standard photo shape (4 units wide, 3 units tall) */
+            aspect-ratio: 4/3; 
+            object-fit: cover; /* Ensures it still fills the corners */
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block; /* Removes tiny bottom gap */
         }
 
         .about-image:hover img {
@@ -924,6 +928,9 @@
     
     .logo span {
         display: none; /* Hide text on very small screens, show only logo */
+    }
+    .about-image img {
+        aspect-ratio: 16/9; /* Wider and shorter for mobile screens */
     }
 }
 
@@ -1803,5 +1810,142 @@
     .gallery-overlay p {
         font-size: 0.85rem;
         display: none; /* Hide subtitle on mobile to keep it clean, optional */
+    }
+}
+
+/* Floating WhatsApp Button */
+#whatsappFloat {
+    position: fixed;
+    bottom: 90px; /* Positioned above the Scroll Top button */
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #25D366; /* Official WhatsApp Green */
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    
+    /* Flexbox to center the icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem; /* Large readable icon */
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover Animation */
+#whatsappFloat:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    background: #20BA56; /* Slightly darker green on hover */
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    #whatsappFloat {
+        bottom: 75px; /* Adjust slightly for mobile spacing */
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Gallery - Infinite Scroll & Zoom */
+.gallery-wrapper {
+    width: 100%;
+    overflow: hidden; /* Hides the scrollbar */
+    padding: 2rem 0;
+    position: relative;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content; /* Force single line */
+    /* Adjust '40s' to make it faster or slower */
+    animation: scrollGallery 40s linear infinite; 
+}
+
+/* Pause scrolling when user touches/hovers so they can look closely */
+.gallery-track:hover {
+    animation-play-state: paused;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 320px;  /* RESTORED: Matches your original design exactly */
+    width: 400px;   /* Fixed width to maintain the card shape */
+    flex-shrink: 0;
+    cursor: pointer;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1); /* Original shadow restored */
+}
+
+/* The Continuous Zoom Effect (Ken Burns) */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Zoom in and out continuously */
+    animation: autoZoom 15s infinite alternate ease-in-out;
+    will-change: transform;
+}
+
+/* Overlay Styling */
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    /* Subtle gradient always visible so text can be read */
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show overlay on hover */
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay h4 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.gallery-overlay p {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes scrollGallery {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Moves exactly half way (the duplicate set) then resets */
+}
+
+@keyframes autoZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); } /* Smooth 15% zoom */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .gallery-item {
+        height: 250px; /* Smaller height for mobile phones */
+        width: 280px;  /* Smaller width to fit screen better */
+    }
+    
+    /* Keep overlay visible on mobile */
+    .gallery-overlay {
+        opacity: 1; 
     }
 }

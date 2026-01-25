@@ -332,59 +332,63 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery">
       <h2 class="section-title reveal">Image Gallery</h2>
       <p class="section-subtitle reveal">
         Discover the beauty of K'siri through our visual journey
       </p>
-      <div class="gallery-grid">
-        <div class="gallery-item reveal stagger-1">
-          <img src="./assets/Madu.webp" alt="Lake View" />
-          <div class="gallery-overlay">
-            <h4>Serene Lake Views</h4>
-            <p>Calm waters at sunset</p>
-          </div>
+      <div class="gallery-wrapper">
+    <div class="gallery-track">
+        <div class="gallery-item">
+            <img loading="lazy" src="./assets/Madu.webp" alt="Lake View">
+            <div class="gallery-overlay"><h4>Serene Lake Views</h4><p>Calm waters at sunset</p></div>
         </div>
-        <div class="gallery-item reveal stagger-2">
-          <img src="./assets/Interier.webp" alt="Interior" />
-          <div class="gallery-overlay">
-            <h4>Elegant Interiors</h4>
-            <p>Comfort meets style</p>
-          </div>
+        <div class="gallery-item">
+            <img loading="lazy" src="./assets/Interier.webp" alt="Interior">
+            <div class="gallery-overlay"><h4>Elegant Interiors</h4><p>Comfort meets style</p></div>
         </div>
-        <div class="gallery-item reveal stagger-3">
-          <img src="./assets/BedRoom.webp" alt="Bedroom" />
-          <div class="gallery-overlay">
-            <h4>Cozy Bedrooms</h4>
-            <p>Rest in tranquility</p>
-          </div>
+        <div class="gallery-item">
+            <img loading="lazy" src="./assets/BedRoom.webp" alt="Bedroom">
+            <div class="gallery-overlay"><h4>Cozy Bedrooms</h4><p>Rest in tranquility</p></div>
         </div>
-        <div class="gallery-item reveal stagger-1">
-          <img src="./assets/Mangrove_Madu.webp" alt="Mangroves" />
-          <div class="gallery-overlay">
-            <h4>Lush Mangroves</h4>
-            <p>Nature at your doorstep</p>
-          </div>
+        <div class="gallery-item">
+            <img loading="lazy" src="./assets/Mangrove_Madu.webp" alt="Mangroves">
+            <div class="gallery-overlay"><h4>Lush Mangroves</h4><p>Nature at your doorstep</p></div>
         </div>
-        <div class="gallery-item reveal stagger-2">
-          <img src="./assets/Pool.webp" alt="Pool" />
-          <div class="gallery-overlay">
-            <h4>Private Pool</h4>
-            <p>Your outdoor sanctuary</p>
-          </div>
+        <div class="gallery-item">
+            <img loading="lazy" src="./assets/Pool.webp" alt="Pool">
+            <div class="gallery-overlay"><h4>Private Pool</h4><p>Your outdoor sanctuary</p></div>
         </div>
-        <div class="gallery-item reveal stagger-3">
-          <img
-            src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=800"
-            alt="Sunset"
-          />
-          <div class="gallery-overlay">
-            <h4>Golden Sunsets</h4>
-            <p>End each day in beauty</p>
-          </div>
+        <div class="gallery-item">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=800" alt="Sunset">
+            <div class="gallery-overlay"><h4>Golden Sunsets</h4><p>End each day in beauty</p></div>
         </div>
-      </div>
-    </section>
+
+        <div class="gallery-item">
+            <img loading="lazy" src="./assets/Madu.webp" alt="Lake View">
+            <div class="gallery-overlay"><h4>Serene Lake Views</h4><p>Calm waters at sunset</p></div>
+        </div>
+        <div class="gallery-item">
+            <img loading="lazy" src="./assets/Interier.webp" alt="Interior">
+            <div class="gallery-overlay"><h4>Elegant Interiors</h4><p>Comfort meets style</p></div>
+        </div>
+        <div class="gallery-item">
+            <img loading="lazy" src="./assets/BedRoom.webp" alt="Bedroom">
+            <div class="gallery-overlay"><h4>Cozy Bedrooms</h4><p>Rest in tranquility</p></div>
+        </div>
+        <div class="gallery-item">
+            <img loading="lazy" src="./assets/Mangrove_Madu.webp" alt="Mangroves">
+            <div class="gallery-overlay"><h4>Lush Mangroves</h4><p>Nature at your doorstep</p></div>
+        </div>
+        <div class="gallery-item">
+            <img loading="lazy" src="./assets/Pool.webp" alt="Pool">
+            <div class="gallery-overlay"><h4>Private Pool</h4><p>Your outdoor sanctuary</p></div>
+        </div>
+        <div class="gallery-item">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=800" alt="Sunset">
+            <div class="gallery-overlay"><h4>Golden Sunsets</h4><p>End each day in beauty</p></div>
+        </div>
+    </div>
+</div>
 
     <!-- Location Section -->
     <section id="location">
@@ -711,14 +715,6 @@
           </button>
           <div class="form-status" id="formStatus"></div>
         </form>
-
-        <a
-          href="https://wa.me/94777557871"
-          class="whatsapp-btn"
-          target="_blank"
-        >
-          <i class="fab fa-whatsapp"></i> Quick WhatsApp Contact
-        </a>
       </div>
     </section>
 
@@ -778,6 +774,15 @@
     <button id="scrollTopBtn" aria-label="Go to top">
       <i class="fas fa-arrow-up"></i>
     </button>
+
+    <a
+      href="https://wa.me/94777557871"
+      id="whatsappFloat"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
       // Mobile Menu Toggle
