@@ -1764,3 +1764,44 @@
         height: 45px;
     }
 }
+
+/* --- MOBILE GALLERY FIX & CREATIVE ZOOM --- */
+
+/* Define the "Ken Burns" Slow Zoom Animation */
+@keyframes mobileBreathing {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); } /* Zooms in 15% */
+}
+
+@media (max-width: 768px) {
+    /* 1. Adjust Card Height for Mobile */
+    /* 320px is too tall for mobile, creating bad crops. 250px is balanced. */
+    .gallery-item {
+        height: 250px; 
+    }
+
+    /* 2. Apply the Automatic Zoom Effect */
+    .gallery-item img {
+        /* Alternate means it zooms IN, then zooms OUT smoothly */
+        animation: mobileBreathing 12s infinite alternate ease-in-out;
+        will-change: transform; /* Keeps animation smooth on phones */
+    }
+
+    /* 3. Improve Overlay Visibility */
+    /* Since we can't "hover" on mobile, we show a subtle gradient always */
+    .gallery-overlay {
+        opacity: 1; 
+        background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+    }
+
+    /* 4. Text Styling for Mobile */
+    .gallery-overlay h4 {
+        font-size: 1.1rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .gallery-overlay p {
+        font-size: 0.85rem;
+        display: none; /* Hide subtitle on mobile to keep it clean, optional */
+    }
+}
