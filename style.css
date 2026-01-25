@@ -20,9 +20,10 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Lato', sans-serif; /* Professional & Elegant */
+            font-weight: 300; /* Makes text slightly thinner/lighter for a premium feel */
             color: var(--text-dark);
-            line-height: 1.7;
+            line-height: 1.8; /* Increases spacing slightly for better readability */
             overflow-x: hidden;
             background: var(--warm-white);
         }
@@ -142,16 +143,22 @@
         }
 
         /* Hero Section */
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--warm-white);
-            overflow: hidden;
-        }
+        /* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100%;       /* Force full width */
+    max-width: 100%;   /* Override the global 1500px limit */
+    padding: 0;        /* Remove default section padding so it hits the edges */
+    margin: 0;         /* Remove centering margins */
+    
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--warm-white);
+    overflow: hidden;
+}
 
         .hero-bg {
             position: absolute;
@@ -299,6 +306,7 @@
             text-align: center;
             font-size: 3rem;
             color: var(--lake-teal);
+            margin-top: 3rem;
             margin-bottom: 1.2rem;
             position: relative;
         }
@@ -1706,7 +1714,7 @@
     line-height: 1.6;
 }
 
-/* Responsive */
+/* Responsive Dining Section */
 @media (max-width: 900px) {
     .dining-feature {
         grid-template-columns: 1fr;
@@ -1715,8 +1723,18 @@
     }
     
     .feature-image {
-        height: 300px;
-        order: -1; /* Image on top for mobile */
+        /* CHANGED: Removed fixed 300px height */
+        height: auto; 
+        /* ADDED: Makes it a nice widescreen rectangle (like a YouTube video shape) */
+        aspect-ratio: 16/9;
+        order: -1; /* Image on top */
+        width: 100%;
+    }
+    
+    .feature-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 }
 
