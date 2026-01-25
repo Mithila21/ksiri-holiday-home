@@ -297,7 +297,7 @@
 
         /* Sections */
         section {
-            padding: 6rem 6%;
+            padding: 2rem 6%;
             max-width: 1500px;
             margin: 0 auto;
         }
@@ -681,7 +681,7 @@
         #contact {
             background: linear-gradient(135deg, var(--lake-teal), var(--soft-green));
             color: var(--warm-white);
-            padding: 6rem 6%;
+            padding: 2rem 6%;
             border-radius: 50px;
         }
 
@@ -1313,7 +1313,7 @@
             }
 
             section {
-                padding: 4rem 5%;
+                padding: 2.5rem 5%;
             }
         }
 
